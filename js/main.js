@@ -1,29 +1,29 @@
 $( document ).ready( function () {
 
-	var vid         = document.getElementById( 'bgvid' );
-	var pauseButton = document.querySelector( '#polina button' );
+	var vid         = $ ( '#bgvid' );
+	var pauseButton = $ ( '#polina button' );
 
 	function vidFade() {
-		vid.classList.add( 'stopfade' );
+		vid.addClass ( 'stopfade' );
 	}
 
-	vid.addEventListener( 'ended', function() {
+	vid.on( 'ended', function() {
 		// only functional if 'loop' is removed
 		vid.pause();
 		// to capture IE10
 		vidFade();
 	} );
 
-	pauseButton.addEventListener( 'click', function () {
-		vid.classList.toggle( 'stopfade' );
-		if ( vid.paused ) {
-			vid.play();
-			pauseButton.innerHTML = 'Pause';
+	pauseButton.click( function () {
+		vid.toggleClass( 'stopfade' );
+		if ( vid.get( 0 ).paused ) {
+			vid.trigger('play');
+			$( this ).text( 'Pause' );
 		} else {
-			vid.pause();
-			pauseButton.innerHTML = 'Paused';
+			vid.trigger ('pause');
+			$( this ).text( 'Pause' );
 		}
-	} )
+	} );
 
 });
 
