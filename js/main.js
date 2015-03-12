@@ -21,7 +21,7 @@ $( document ).ready( function () {
 			$( this ).text( 'Pause' );
 		} else {
 			vid.trigger ('pause');
-			$( this ).text( 'Pause' );
+			$( this ).text( 'Paused' );
 		}
 	} );
 
